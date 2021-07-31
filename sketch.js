@@ -1,6 +1,11 @@
 var db,chat,chat1,inp,userid,messno=0;
 var pos=30;
 var Input;
+var play;
+var chatpin,chatpin1;
+function preload(){
+ play= loadSound("ping.mp3")
+}
 function setup(){
     createCanvas(500,500);
     db=firebase.database();
@@ -20,6 +25,10 @@ if(userid==1){
     }
     text(chat,10,pos);
     text(chat1,10,pos+30);
+    if(chatpin!==chat1){
+        play.play()
+        chatpin=chat1
+    }
 }
 if(userid==2){
     if(keyCode==ENTER){
@@ -27,6 +36,10 @@ if(userid==2){
     }
     text(chat1,10,pos);
     text(chat,10,pos+30);
+    if(chatpin1!==chat){
+        play.play()
+        chatpin1=chat
+    }
 }
 }
 
