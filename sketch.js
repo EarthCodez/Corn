@@ -22,10 +22,10 @@ function draw(){
     background("black");
     textSize(30)
 if(userid==1){
-    textFont("Ink Free");
     if(keyCode==ENTER){
         chatt(inp.value())
     }
+    textFont("Ink Free");
     fill("lime")
     text(chat,10,pos-5);
     text(chat1,10,pos+30);
@@ -39,6 +39,7 @@ if(userid==2){
     if(keyCode==ENTER){
         chatt1(inp.value())
     }
+    textFont("Ink Free");
     fill("red")
     text(chat1,10,pos-5);
     text(chat,10,pos+30);
