@@ -7,7 +7,7 @@ function preload(){
  play= loadSound("ping.mp3")
 }
 function setup(){
-    createCanvas(500,500);
+    createCanvas(400,100);
     db=firebase.database();
     var chit=db.ref('Input');
     chit.on('value',readChat,showError);
@@ -16,15 +16,20 @@ function setup(){
     chit1.on('value',readChat1,showError);
     inp=createInput("send here!");
     pos=30
+    inp.position(8,128)
 }
 function draw(){
-    background("red");
+    background("black");
+    textSize(30)
 if(userid==1){
+    textFont("Ink Free");
     if(keyCode==ENTER){
         chatt(inp.value())
     }
-    text(chat,10,pos);
+    fill("lime")
+    text(chat,10,pos-5);
     text(chat1,10,pos+30);
+
     if(chatpin!==chat1){
         play.play()
         chatpin=chat1
@@ -34,11 +39,13 @@ if(userid==2){
     if(keyCode==ENTER){
         chatt1(inp.value())
     }
-    text(chat1,10,pos);
+    fill("red")
+    text(chat1,10,pos-5);
     text(chat,10,pos+30);
     if(chatpin1!==chat){
         play.play()
         chatpin1=chat
+    
     }
 }
 }
